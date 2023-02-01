@@ -2,12 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
+@layer base {
 
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
-  }
+    h1 {
+        @apply text-3xl lg:text-4xl lg:leading-tight my-7 font-bold antialiased;
+    }
+
+    h2 {
+        @apply text-2xl lg:text-3xl mt-6 md:mt-12 mb-5 font-bold antialiased;
+    }
+
+    h3 {
+        @apply text-base lg:text-lg font-medium mb-3;
+    }
+
+    h5 {
+        @apply font-semibold text-lg;
+    }
+
+    a {
+        @apply underline;
+    }
+
+
 }
-
-*/
