@@ -24,5 +24,11 @@
         @apply underline;
     }
 
+}
+
+@layer component {
+    body {
+        @apply bg-white-500;
+    }
 
 }

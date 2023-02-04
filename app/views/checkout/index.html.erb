@@ -2,3 +2,22 @@
 <h1>Amenitiz CheckOut</h1>
 
 
+<h2>Liste des produit</h2>
+
+
+<table class="table-fixed w-80">
+  <thead>
+  <tr>
+    <th>Nom</th>
+    <th>Prix</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.name %></td>
+      <td><%= product.price %> €</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
