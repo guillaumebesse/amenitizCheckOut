@@ -1,5 +1,5 @@
 
-class BuyOneGetOneSpecialOfferHandler < SpecialOfferHandler
+class BuyOneGetOneGreenTeaSpecialOfferHandler < SpecialOfferHandler
 
   # Return a CartItemCheckout
   def apply(cart_item)
