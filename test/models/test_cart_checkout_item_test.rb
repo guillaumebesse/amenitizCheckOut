@@ -53,7 +53,17 @@ class TestCartCheckoutItemsTest < Minitest::Test
 
 
 
+  def test_three_coffees_special_offer
+    three_coffees_special_offer_handler = ThreeCoffeesSpecialOfferHandler.new
 
+    cart_item_with_2_coffees = CartItem.new(@products[:coffee], 2)
+    assert three_coffees_special_offer_handler.isSpecialOfferApply(cart_item_with_2_coffees) == false
+
+    cart_item_with_3_coffees = CartItem.new(@products[:coffee], 3)
+    assert three_coffees_special_offer_handler.isSpecialOfferApply(cart_item_with_3_coffees) == true
+    assert three_coffees_special_offer_handler.apply(cart_item_with_3_coffees).total_price == @products[:coffee].price * 3 * ThreeCoffeesSpecialOfferHandler::DROP_PRICE_RATIO
+    assert three_coffees_special_offer_handler.apply(cart_item_with_3_coffees).quantity == cart_item_with_3_coffees.quantity
+  end
 
 
 end

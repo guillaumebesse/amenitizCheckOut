@@ -15,7 +15,7 @@ class ThreeStrawberriesSpecialOfferHandler < SpecialOfferHandler
     cart_checkout_item
   end
 
-  # Offer only for Tea
+  # Offer only for Strawberries with 3 or more products
   def isSpecialOfferApply(cart_item)
     cart_item.product.code == "SR1" && cart_item.quantity >= 3
   end

@@ -7,7 +7,7 @@ class BuyOneGetOneGreenTeaSpecialOfferHandler < SpecialOfferHandler
     cart_checkout_item = CartCheckoutItem.new(cart_item)
 
     if isSpecialOfferApply(cart_item)
-      Rails.logger.info "Applying BuyOneGetOne Special Offer"
+      Rails.logger.info "Applying a buy one get one Green Tea Special Offer"
 
       nb_free_products = cart_item.quantity
       free_products = []
