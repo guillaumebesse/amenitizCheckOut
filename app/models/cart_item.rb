@@ -1,4 +1,4 @@
-class ShoppingCartItem
+class CartItem
   attr_accessor :product, :quantity
 
   def initialize(product, quantity)
