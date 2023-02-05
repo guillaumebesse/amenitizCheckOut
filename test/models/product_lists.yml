@@ -1,0 +1,16 @@
+# Products list used by tests only
+
+tea:
+  name: "Green Tea"
+  code: "GR1"
+  price: 3.11
+
+strawberries:
+  name: "Strawberries"
+  code: "SR1"
+  price: 5.00
+
+coffee:
+  name: "Coffee"
+  code: "CF1"
+  price: 11.23
