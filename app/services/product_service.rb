@@ -7,4 +7,9 @@ class ProductService
       Product.new("Coffee", "CF1", 11.23)
     ]
   end
+
+  def self.get_by_code(code)
+    self.all_products.find{ |product|  product.code == code }
+  end
+
 end

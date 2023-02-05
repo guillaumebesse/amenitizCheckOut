@@ -1,7 +1,9 @@
 require "test_helper"
 require 'minitest/autorun'
 
+
 class TestCart < Minitest::Test
+
   def setup
     path = File.join(Rails.root, "test/models", "product_lists.yml")
     products_yml = YAML.load_file(path)
@@ -16,13 +18,13 @@ class TestCart < Minitest::Test
   end
 
   def test_empty_cart
-    cart = Cart.new
+    cart = CartItems.new
     assert cart.total_price == 0
   end
 
 
   def test_cart_one_product
-    cart = Cart.new
+    cart = CartItems.new
 
     # quantity=1
     cart.add_product(@products[:tea])
@@ -36,7 +38,7 @@ class TestCart < Minitest::Test
 
 
   def test_cart_two_products
-    cart = Cart.new
+    cart = CartItems.new
     cart.add_product(@products[:tea], 2)
     cart.add_product(@products[:coffee], 3)
     assert cart.total_price == @products[:tea].price*2 + @products[:coffee].price*3

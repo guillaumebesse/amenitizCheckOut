@@ -1,4 +1,4 @@
-class Cart
+class CartItems
   attr_accessor :cart_items
 
   def initialize
@@ -24,7 +24,7 @@ class Cart
   def total_price
     result = 0
     @cart_items.each do |shopping_cart_item|
-      result = result + shopping_cart_item.product.price * shopping_cart_item.quantity
+      result = result + shopping_cart_item.total_price
     end
     result
   end
