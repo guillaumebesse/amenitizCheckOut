@@ -1,6 +1,6 @@
 
 
-class ThreeCoffeesSpecialOfferHandler < SpecialOfferHandler
+class CoffeeSpecialOfferHandler < SpecialOfferHandler
 
   DROP_PRICE_RATIO = Rational(2, 3).to_f   #Float.new(2/3)
 

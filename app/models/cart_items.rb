@@ -20,7 +20,6 @@ class CartItems
     @cart_items.find{ |cart_item|  cart_item.product.code == product_code }
   end
 
-
   def total_price
     result = 0
     @cart_items.each do |shopping_cart_item|

@@ -1,5 +1,5 @@
 
-class ThreeStrawberriesSpecialOfferHandler < SpecialOfferHandler
+class StrawberriesSpecialOfferHandler < SpecialOfferHandler
 
   PRICE_DROP = 4.50
 
@@ -10,7 +10,7 @@ class ThreeStrawberriesSpecialOfferHandler < SpecialOfferHandler
 
     if isSpecialOfferApply(cart_item)
       Rails.logger.info "Applying Special Offer when buying more than 3 strawberries"
-      cart_checkout_item.total_price = cart_checkout_item.total_price - PRICE_DROP
+      cart_checkout_item.total_price = cart_checkout_item.quantity * PRICE_DROP
     end
     cart_checkout_item
   end

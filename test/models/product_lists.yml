@@ -1,6 +1,6 @@
 # Products list used by tests only
 
-tea:
+green_tea:
   name: "Green Tea"
   code: "GR1"
   price: 3.11
