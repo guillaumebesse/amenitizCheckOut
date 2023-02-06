@@ -10,7 +10,8 @@ class StrawberriesSpecialOfferHandler < SpecialOfferHandler
 
     if isSpecialOfferApply(cart_item)
       Rails.logger.info "Applying Special Offer when buying more than 3 strawberries"
-      cart_checkout_item.total_price = cart_checkout_item.quantity * PRICE_DROP
+      cart_checkout_item.total_price = (cart_checkout_item.quantity * PRICE_DROP).round(2)
+      cart_checkout_item.has_special_offer = true
     end
     cart_checkout_item
   end

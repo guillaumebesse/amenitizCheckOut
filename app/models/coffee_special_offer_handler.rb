@@ -2,7 +2,7 @@
 
 class CoffeeSpecialOfferHandler < SpecialOfferHandler
 
-  DROP_PRICE_RATIO = Rational(2, 3).to_f   #Float.new(2/3)
+  DROP_PRICE_RATIO = Rational(2, 3).to_f
 
   # Return a CartItemCheckout
   def apply(cart_item)
@@ -11,7 +11,8 @@ class CoffeeSpecialOfferHandler < SpecialOfferHandler
 
     if isSpecialOfferApply(cart_item)
       Rails.logger.info "Applying Special Offer when buying more than 3 coffees"
-      cart_checkout_item.total_price = cart_checkout_item.total_price * DROP_PRICE_RATIO
+      cart_checkout_item.total_price = (cart_checkout_item.total_price * DROP_PRICE_RATIO).round(2)
+      cart_checkout_item.has_special_offer = true
     end
     cart_checkout_item
   end

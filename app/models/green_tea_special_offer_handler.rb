@@ -18,7 +18,7 @@ class GreenTeaSpecialOfferHandler < SpecialOfferHandler
       end
 
       cart_checkout_item.free_products = free_products
-
+      cart_checkout_item.has_special_offer = true
     end
     cart_checkout_item
   end
