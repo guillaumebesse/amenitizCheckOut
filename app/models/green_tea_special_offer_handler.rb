@@ -19,6 +19,8 @@ class GreenTeaSpecialOfferHandler < SpecialOfferHandler
 
       cart_checkout_item.free_products = free_products
       cart_checkout_item.has_special_offer = true
+      cart_checkout_item.savings = (free_products.length * cart_item.product.price).round(2)
+      cart_checkout_item.description = "Special offer: buy one Green Tea get one free. Nb free products: #{free_products.length}. Savings: €#{cart_checkout_item.savings}"
     end
     cart_checkout_item
   end

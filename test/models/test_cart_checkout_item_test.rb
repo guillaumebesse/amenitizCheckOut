@@ -1,7 +1,6 @@
 require "test_helper"
 require 'minitest/autorun'
 
-
 #
 # Tests dealing with Special Offers
 # No mix of products here

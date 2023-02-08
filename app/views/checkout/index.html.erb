@@ -1,22 +1,21 @@
-
-<h1>Amenitiz CheckOut</h1>
+<h1>CheckOut</h1>
 
 
 <h2>Products list</h2>
 
 
-<table class="table-fixed w-80">
-  <thead>
+<table class="w-96">
+  <thead class="border-b border-gray-400">
   <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Add</th>
+    <th class="text-left">Name</th>
+    <th class="text-left">Price</th>
+    <th class="text-left"></th>
   </tr>
   </thead>
   <tbody>
   <% @products.each do |product| %>
-    <tr>
-      <td><%= product.name %></td>
+    <tr class="border-b border-gray-100">
+      <td class="py-2"><%= product.name %></td>
       <td>€ <%= product.price %></td>
       <td><%= link_to "Add", checkout_add_path(product_code: product.code) %></td>
     </tr>
@@ -29,41 +28,36 @@
 <h2>Shopping Cart</h2>
 
 
-<table class="table-fixed w-80">
-  <thead>
+<%= link_to "Reset cart", checkout_reset_url, class: "block my-4" %>
+
+
+<table class="w-96">
+  <thead class="border-b border-gray-400">
   <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Total</th>
+    <th class="text-left">Name</th>
+    <th class="text-left">Price</th>
+    <th class="text-left">Quantity</th>
+    <th class="text-left">Total</th>
   </thead>
   <tbody>
   <% @cartItemsCheckout.checkout_items.each do |checkout_item| %>
-    <tr>
-      <td>
+    <tr class="<%= checkout_item.has_special_offer ? "" : "border-b" %> border-gray-100">
+      <td class="py-2">
         <%= checkout_item.cart_item.product.name %>
-        <% if checkout_item.has_special_offer %>
-
-          <span class="text-sm">Special offer</span>
-
-    <% end %>
       </td>
       <td>€ <%= checkout_item.cart_item.product.price %></td>
-      <td><%= checkout_item.cart_item.quantity %></td>
+      <td><%= checkout_item.quantity %></td>
       <td>€ <%= checkout_item.total_price %></td>
     </tr>
+    <% if checkout_item.has_special_offer %>
+      <tr class="border-b border-gray-400">
+        <td class="text-xs text-gray-400" colspan="4"><%= checkout_item.description %></td>
+      </tr>
+    <% end %>
   <% end %>
-
-  <% if @cartItemsCheckout.nil? %>
-    <tr>
-      <td colspan="3">Your cart is empty</td>
-    </tr>
-  <% else %>
-    <tr>
-      <td colspan="3">Total</td>
-      <td>€ <%= @cartItemsCheckout.total_price %></td>
-    </tr>
-  <% end %>
-
-
+  <tr>
+    <td colspan="3" class="font-bold">Total</td>
+    <td class="font-bold">€ <%= @cartItemsCheckout.total_price %></td>
+  </tr>
   </tbody>
+</table>

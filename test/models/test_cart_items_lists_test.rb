@@ -29,6 +29,7 @@ class TestCartItemsListsTest < Minitest::Test
     cart_checkout_items = CartCheckoutItems.new(cart_items)
     assert_equal 3.11, cart_checkout_items.total_price
     assert_equal 2, cart_checkout_items.total_quantity
+    assert_equal cart_checkout_items.total_price + cart_checkout_items.savings, cart_checkout_items.total_price_without_offers
   end
 
   # TEST 2 | SR1,SR1,GR1,SR1 |  16.61€ |
@@ -42,6 +43,7 @@ class TestCartItemsListsTest < Minitest::Test
     cart_checkout_items = CartCheckoutItems.new(cart_items)
 
     assert_equal 16.61, cart_checkout_items.total_price
+    assert_equal cart_checkout_items.total_price + cart_checkout_items.savings, cart_checkout_items.total_price_without_offers
   end
 
 
@@ -57,6 +59,6 @@ class TestCartItemsListsTest < Minitest::Test
     cart_checkout_items = CartCheckoutItems.new(cart_items)
 
     assert_equal 30.57, cart_checkout_items.total_price
-
+    assert_equal cart_checkout_items.total_price + cart_checkout_items.savings, cart_checkout_items.total_price_without_offers
   end
 end

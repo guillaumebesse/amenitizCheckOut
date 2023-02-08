@@ -19,8 +19,20 @@ class CartCheckoutItems
     result.round(2)
   end
 
+  def total_price_without_offers
+    result = 0
+    @checkout_items.each do |cart_checkout_item|
+      result = result + cart_checkout_item.cart_item.product.price*(cart_checkout_item.cart_item.quantity+cart_checkout_item.free_products.length)
+    end
+    result.round(2)
+  end
 
-  # Total quantity of products, including free products
+  def savings
+    @checkout_items.sum(&:savings)
+  end
+
+
+  # Total quantity of products
   def total_quantity
     result = 0
     @checkout_items.each do |cart_checkout_item|
