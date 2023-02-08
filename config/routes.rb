@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
   get '/checkout/add', to: 'checkout#add_to_cart'
-
+  get '/checkout/reset', to: 'checkout#reset_cart'
 
 
 end

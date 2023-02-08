@@ -28,6 +28,12 @@ class CheckoutController < ApplicationController
   end
 
 
+  def reset_cart
+    logger.debug "Reset cart "
+    session[:items] = nil
+    redirect_to "/"
+  end
+
   private
 
   def get_cartItems
