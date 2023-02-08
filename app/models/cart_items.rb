@@ -1,3 +1,5 @@
+# CartItems is a collection of CartItem objects. It is used to represent the cart without the special offers.
+# It is now viewable by the user.
 class CartItems
   attr_accessor :items
 
@@ -25,7 +27,7 @@ class CartItems
     @items.each do |shopping_cart_item|
       result = result + shopping_cart_item.total_price
     end
-    result
+    result.round(2)
   end
 
 end

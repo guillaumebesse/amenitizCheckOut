@@ -13,7 +13,7 @@ class GreenTeaSpecialOfferHandler < SpecialOfferHandler
       free_products = []
 
       nb_free_products.times do
-        free_products << ProductService.get_by_code(cart_item.product.code)
+        free_products << StorageService.get_by_code(cart_item.product.code)
         cart_checkout_item.quantity = cart_checkout_item.quantity + 1
       end
 

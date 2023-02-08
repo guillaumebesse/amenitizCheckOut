@@ -1,3 +1,4 @@
+#
 class CartCheckoutItems
   attr_accessor :total_price
   attr_reader :checkout_items, :special_offer_handlers

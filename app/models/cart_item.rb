@@ -1,3 +1,4 @@
+# The CartItem class is used to represent a product in the cart.
 class CartItem
   attr_accessor :product, :quantity
 
@@ -7,7 +8,7 @@ class CartItem
   end
 
   def total_price
-    @product.price * @quantity
+    (@product.price * @quantity).round(2)
   end
 
 end
